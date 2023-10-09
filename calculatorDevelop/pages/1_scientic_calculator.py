@@ -1,5 +1,5 @@
 import streamlit as st
-import numpy as np 
+from math import *
 
 def calculate(expression):  
     try:  
