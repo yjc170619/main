@@ -76,8 +76,14 @@ def main():
     #增伤（zs）乘区
     zs=st.number_input('请输入增伤系数',min_value=0.0,value=1.0,step=0.001)
 
-    #抗性（kx）乘区
-    kx=st.number_input('请输入抗性系数',min_value=0.0,value=1.0,step=0.001)
+    #抗性（kx）乘区，gwkx怪物抗性
+    gwkx=st.number_input('请输入怪物抗性',value=1.0,step=0.001)
+    if gwkx<0:
+        kx=1-gwkx/2
+    if gwkx>0.75:
+        kx=1/(1+4*gwkx)
+    else:
+        kx=1-gwkx
 
     #防御（fy）乘区,jsdj角色等级，gwdj怪物等级，jf减防，wsfy无视防御
     jsdj=st.slider('请选择角色等级',1,90,90)
